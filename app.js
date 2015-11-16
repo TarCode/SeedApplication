@@ -25,7 +25,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/', main.land);
-app.post('/', main.captureEmail)
 
 var port = process.env.PORT || 3000;
 var server = app.listen(port, function () {
