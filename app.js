@@ -13,7 +13,7 @@ var dbOptions = {
       user: 'root',
       password: 'coder123',
       port: 3306,
-      database: 'fitty'
+      database: 'seedDb'
 };
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
@@ -25,6 +25,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/', main.land);
+app.get('/sign_up', main.show_sign_up);
+
+app.get('/login', main.show_login);
+
+
 
 var port = process.env.PORT || 3000;
 var server = app.listen(port, function () {

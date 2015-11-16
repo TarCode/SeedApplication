@@ -8,10 +8,7 @@ Contains Create, Reade, Update and Delete capabilities with MySQL Database.
 * Forms
 * Handlebar templates
 * Http sessions
-* Basic CRUD using Mysql
-  * include a basic mysql database script
-  * 2-3 database tables linked with foreign keys
-  * example of how to create database and username/password
+* Basic CRUD using MySQL
 * Configured to use Boostrap CSS framework
 * Basic navigation
 * Responsive layout support
