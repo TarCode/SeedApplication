@@ -1,7 +1,8 @@
 # Seed Application
 
-Seed application with basic CRUD functionality
-Basic skeleton used by most web applications. Contains Create, Reade, Update and Delete capabilities with MySQL Database.
+Seed application with basic CRUD functionality.
+Basic skeleton used by most web applications.
+Contains Create, Reade, Update and Delete capabilities with MySQL Database.
 
 ## Includes
 * Forms
@@ -15,8 +16,6 @@ Basic skeleton used by most web applications. Contains Create, Reade, Update and
 * Basic navigation
 * Responsive layout support
 * Error handling
-* The port number it run on should be configurable using an environment variable.
-
 
 * Authentication using middleware
 * Password encryption using bcrypt
