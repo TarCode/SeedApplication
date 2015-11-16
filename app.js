@@ -36,8 +36,9 @@ app.use(myConnection(mysql, dbOptions, 'pool'));
 var main = new MainMethods();
 app.get('/', main.land);
 app.get('/sign_up', main.show_sign_up);
-
+app.post('/sign_up', main.post_sign_up);
 app.get('/login', main.show_login);
+//app.post('login', main.post_login);
 
 
 
