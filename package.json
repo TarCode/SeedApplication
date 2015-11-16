@@ -1,0 +1,25 @@
+{
+  "name": "SeedApplication",
+  "version": "0.0.0",
+  "description": "Seed application with main basic functionality",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TarCode/SeedApplication.git"
+  },
+  "author": "TarCode",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/TarCode/SeedApplication/issues"
+  },
+  "dependencies": {
+    "express": "~4.13.3",
+    "mysql": "~2.9.0",
+    "express-handlebars": "~2.0.1",
+    "express-myconnection": "~1.0.4",
+    "body-parser": "~1.14.1"
+  }
+}
