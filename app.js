@@ -3,8 +3,9 @@ var express = require('express'),
     exphbs  = require('express-handlebars'),
     myConnection = require('express-myconnection'),
     bodyParser = require('body-parser'),
-    main = require('./routes/main');
-
+    MainMethods = require('./routes/mainMethods'),
+    MainDataService = require('./dataServices/mainDataService'),
+    ConnectionProvider = require('./routes/connectionProvider');
 
 var app = express();
 
@@ -18,12 +19,21 @@ var dbOptions = {
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
-
 app.use(express.static('public'));
-app.use(myConnection(mysql, dbOptions, 'single'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+var serviceSetupCallback = function(connection){
+	return {
+		mainDataService : new MainDataService(connection)
+	}
+};
+var myConnectionProvider = new ConnectionProvider(dbOptions, serviceSetupCallback);
+app.use(myConnectionProvider.setupProvider);
+app.use(myConnection(mysql, dbOptions, 'pool'));
+
+
+var main = new MainMethods();
 app.get('/', main.land);
 app.get('/sign_up', main.show_sign_up);
 
