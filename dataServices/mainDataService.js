@@ -12,7 +12,7 @@ module.exports = function(connection){
       changeData('INSERT INTO users SET ?', data,  cb);
   }
   this.login = function (data, cb) {
-      changeData('SELECT * FROM users WHERE username = ?', data, cb );
+      changeData('SELECT * FROM users WHERE email = ?', [data], cb );
   };
 
 }

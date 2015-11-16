@@ -22,7 +22,7 @@ module.exports = function(){
 
          var mainService = services.mainDataService;
          mainService.sign_up(data, function(err, results) {
-               if (err) return next(err);
+               if (err) console.log(err);
                res.render('login', {msg: "You have successfully signed up"});
          });
        }
@@ -33,8 +33,37 @@ module.exports = function(){
   }
 
   //render login page
-  this.show_login = function (req, res){
+  this.show_login = function (req, res, next){
     res.render('login');
   }
+
+  //check user against users in database
+  this.post_login = function(req, res){
+    var input = JSON.parse(JSON.stringify(req.body));
+    req.services(function(err, services){
+         var data = {
+                       email: input.email,
+                       password: input.password
+                    }
+
+         var mainService = services.mainDataService;
+         mainService.login(data.email, function(err, results) {
+               if (err) console.log(err);
+               if(results.length === 0){
+                 res.render('login', {msg: "Incorrect username or password"});
+
+               }
+               else if(results[0].password === data.password){
+                 res.render('new_profile');
+               }
+               else{
+                 res.render('login', {msg: "Incorrect username or password"});
+
+               }
+         });
+
+    });
+  }
+
 
 }
