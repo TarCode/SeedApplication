@@ -1,0 +1,19 @@
+
+      <div class="col-sm-6">
+        <div class="well">
+             <form action = "/restaurant/new" method = "POST" class="form-horizontal" role="form">
+              <h4>Add a Restaurant</h4>
+               <div class="form-group" style="padding:14px;">
+                <input name = "name" class="form-control" placeholder="Restaurant Name"></input>
+                <input name = "location" class="form-control" placeholder="Location"></input>
+                <input class="form-control" type="file" name="img_url">
+                <select class="form-control" name = "type">
+                  <option value="vegan">Vegan</option>
+                  <option value="vegetarian">Vegetarian</option>
+                </select>
+                <input name = "cuisine" class="form-control" placeholder="Cuisine"></input>
+              </div>
+              <button class="btn btn-success " type="submit">Add</button>
+            </form>
+        </div><!--/well-->
+    </div><!--/col-->

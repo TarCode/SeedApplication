@@ -45,6 +45,10 @@ module.exports = function(){
   this.show_login = function (req, res, next){
     res.render('login');
   }
+  //renders add restaurant page
+  this.show_add_restaurant = function (req, res, next){
+    res.render('new_restaurant');
+  }
 
   //check user against users in database
   this.post_login = function(req, res){
@@ -63,7 +67,7 @@ module.exports = function(){
 
                }
                else if(results[0].password === data.password){
-                 res.render('new_profile');
+                 res.render('new_restaurant');
                }
                else{
                  res.render('login', {msg: "Incorrect username or password"});
