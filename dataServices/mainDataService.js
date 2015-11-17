@@ -8,6 +8,9 @@ module.exports = function(connection){
       connection.query(query, data, cb);
   };
 
+  this.get_restaurants = function(cb){
+    getData('SELECT * FROM restaurants', cb);
+  }
   this.sign_up = function(data, cb){
       changeData('INSERT INTO users SET ?', data,  cb);
   }

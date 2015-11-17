@@ -3,7 +3,16 @@ module.exports = function(){
   this.land = function (req, res){
     res.render('home');
   }
-
+  //gets all restaurants from database
+  this.show_restaurants = function(req, res){
+    req.services(function(err, services){
+        var mainService = services.mainDataService;
+         mainService.get_restaurants(function(err, results) {
+           if (err) console.log(err);
+             res.render('restaurants', {restaurants: results});
+         });
+    });
+  }
   //render sign up page
   this.show_sign_up = function (req, res){
     res.render('sign_up');
